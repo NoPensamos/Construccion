@@ -5,9 +5,15 @@ NoPensamos
 
 Integrantes:
 Felipe Castillo  
-Angel Bravo
+
+Angel Bravo  
+
 Ignacio Farias  
+
 Felipe Guerra 
+
 Juan Madariaga 
+
 Matías Valenzuela 
+
 Lucas Morales 
