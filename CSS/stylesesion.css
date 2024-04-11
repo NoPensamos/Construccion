@@ -8,16 +8,20 @@
 }
 
 a{
-    color: white;
+    color:white;
     text-decoration: none;
 }
 
-.imagen__logo {
-    opacity: 0.75;      
+.imagen__logo { 
+    display: block;
+    margin: auto;
+    padding: 10px;
+    width: 300px;
+   
+
 }
 
-body{        
-    background-image: url(../Image/fondo.jpg);        
+body{              
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -44,7 +48,7 @@ main{
     display: flex;    
     justify-content: center;
     backdrop-filter: blur(10px);
-    background-color: rgba(248, 129, 16, 0.8);
+    background-color: #BFD9D2;
 }
 
 .caja__trasera div{
@@ -76,7 +80,7 @@ main{
 }
 
 .caja__trasera button:hover{
-    background: rgba(248, 129, 16, 1);
+    background: #BFD9D2;
     color: black;
 }
 
@@ -105,7 +109,7 @@ main{
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;    
-    color: rgba(248, 129, 16, 1) ;    
+    color: #BFD9D2 ;    
 }
 
 .contenedor__login-register form input{
@@ -121,10 +125,10 @@ main{
 .contenedor__login-register form button{
     padding: 10px 40px;
     margin-top: 40px;
-    border: none;
+    border-color: white;
     font-size: 14px;
-    background: rgba(248, 129, 16, 1);
-    color: white;
+    background: #BFD9D2;
+    color: black;
     cursor: pointer;
     outline: none;           
 }

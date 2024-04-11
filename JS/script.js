@@ -1,3 +1,90 @@
+// Clase Login para manejar las operaciones de inicio de sesión y registro
+class Login {
+    constructor() {
+        this.auth = firebase.auth();
+    }
+
+    // Método para registrar un nuevo usuario
+    signUp(email, password) {
+        this.auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Registro exitoso, puedes redirigir a la página principal o realizar otras acciones
+                console.log("Registro exitoso");
+                redirectToPrincipalPage();
+            })
+            .catch((error) => {
+                // Ha ocurrido un error durante el registro
+                console.log(error);
+                alert("Ha ocurrido un error durante el registro");
+            });
+    }
+
+    // Método para iniciar sesión con un usuario existente
+    signIn(email, password) {
+        this.auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Inicio de sesión exitoso, puedes redirigir a la página principal o realizar otras acciones
+                console.log("Inicio de sesión exitoso");
+                redirectToPrincipalPage();
+            })
+            .catch((error) => {
+                // Ha ocurrido un error durante el inicio de sesión
+                console.log(error);
+                alert("Ha ocurrido un error durante el inicio de sesión");
+            });
+    }
+}
+
+// Función para redirigir a la página principal después del inicio de sesión o registro exitoso
+function redirectToPrincipalPage() {
+    window.location.href = "../HTML/principal.html";
+}
+
+// Configura tu aplicación de Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyBCO6FN2GvYXNjCxXAbs5ayT_QA-PV0J4g",
+    authDomain: "nopensamos-27b75.firebaseapp.com",
+    projectId: "nopensamos-27b75",
+    storageBucket: "nopensamos-27b75.appspot.com",
+    messagingSenderId: "133968142069",
+    appId: "1:133968142069:web:a10a25ac184161efb6efbc",
+    measurementId: "G-5BFTKN8PSW"
+};
+
+// Inicializa la aplicación de Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Inicializa el objeto de inicio de sesión
+const login = new Login();
+
+// Agrega un listener para el evento "submit" del formulario de registro
+document.getElementById("register-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita el envío del formulario
+
+    const email = document.getElementById("register-email").value;
+    const password = document.getElementById("register-password").value;
+
+    login.signUp(email, password); // Llama al método de registro en el objeto Login
+});
+
+
+
+// Agrega un listener para el evento "submit" del formulario de inicio de sesión
+document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita el envío del formulario
+
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
+
+    login.signIn(email, password); // Llama al método de inicio de sesión en el objeto Login
+});
+
+
+// Agrega un listener para el evento de clic en el botón "Regístrarse"
+document.getElementById("btn__registrarse").addEventListener("click", function() {
+    // Muestra el formulario de registro y oculta el formulario de inicio de sesión
+    document.querySelector(".contenedor__login-register").classList.add("active-register");
+});
 
 // Animaciones
 document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
