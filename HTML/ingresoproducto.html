@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+    <!-- Incluir la biblioteca de Firebase desde el CDN -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script> <!-- Agregado para Firebase Storage -->
+    <!-- Configuración de tu proyecto de Firebase -->
+    <script>
+      // Configuración de tu proyecto de Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyBCO6FN2GvYXNjCxXAbs5ayT_QA-PV0J4g",
+        authDomain: "nopensamos-27b75.firebaseapp.com",
+        databaseURL: "https://nopensamos-27b75-default-rtdb.firebaseio.com",
+        projectId: "nopensamos-27b75",
+        storageBucket: "nopensamos-27b75.appspot.com",
+        messagingSenderId: "133968142069",
+        appId: "1:133968142069:web:a10a25ac184161efb6efbc",
+        measurementId: "G-5BFTKN8PSW"
+      };
+      // Inicializar Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <h1>Formulario de Producto</h1>
+    <form id="formulario_producto">
+        <label for="nombre_producto">Nombre del Producto:</label><br>
+        <input type="text" id="nombre_producto" name="nombre_producto" required><br><br>
+        
+        <label for="precio_producto">Precio del Producto:</label><br>
+        <input type="number" id="precio_producto" name="precio_producto" min="0" step="0.01" required><br><br>
+        
+        <label for="descripcion_producto">Descripción del Producto:</label><br>
+        <textarea id="descripcion_producto" name="descripcion_producto" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="imagen_producto">Imagen del Producto:</label><br>
+        <input type="file" id="imagen_producto" name="imagen_producto" accept="image/*"><br><br>
+        
+        <input type="submit" value="Guardar Producto">
+    </form>
+
+    <!-- Script para manejar el envío de datos a Firebase -->
+    <script>
+        document.getElementById("formulario_producto").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe por defecto
+
+            // Obtener los valores del formulario
+            var nombre = document.getElementById("nombre_producto").value;
+            var precio = document.getElementById("precio_producto").value;
+            var descripcion = document.getElementById("descripcion_producto").value;
+            var imagen = document.getElementById("imagen_producto").files[0];
+
+            // Crear una referencia a la base de datos de Firebase
+            var database = firebase.database();
+            var productosRef = database.ref("productos");
+
+            // Subir la imagen a Firebase Storage
+            var storageRef = firebase.storage().ref('imagenes_productos/' + imagen.name);
+            var task = storageRef.put(imagen);
+
+            task.then(function(snapshot) {
+                // Obtener la URL de la imagen subida
+                return snapshot.ref.getDownloadURL();
+            }).then(function(url) {
+                // Crear un objeto con los datos del producto
+                var nuevoProducto = {
+                    nombre: nombre,
+                    precio: precio,
+                    descripcion: descripcion,
+                    urlImagen: url // Guardar la URL de la imagen en la base de datos
+                };
+
+                // Añadir el nuevo producto a la base de datos
+                productosRef.push(nuevoProducto)
+                    .then(function() {
+                        // Éxito al guardar el producto
+                        alert("Producto guardado exitosamente");
+                        // Limpiar el formulario después de guardar
+                        document.getElementById("formulario_producto").reset();
+                    })
+                    .catch(function(error) {
+                        // Error al guardar el producto
+                        alert("Error al guardar el producto: " + error.message);
+                    });
+            }).catch(function(error) {
+                // Error al subir la imagen
+                alert("Error al subir la imagen: " + error.message);
+            });
+        });
+
+        // Función para mostrar los productos guardados en la base de datos
+        function mostrarProductos() {
+            var database = firebase.database();
+            var productosRef = database.ref("productos");
+
+            productosRef.on("value", function(snapshot) {
+                // Limpiar cualquier contenido previo
+                document.getElementById("productos_list").innerHTML = "";
+
+                snapshot.forEach(function(childSnapshot) {
+                    var producto = childSnapshot.val();
+                    var nombre = producto.nombre;
+                    var precio = producto.precio;
+                    var descripcion = producto.descripcion;
+                    var urlImagen = producto.urlImagen; // Obtener la URL de la imagen
+
+                    // Crear un elemento para mostrar el producto
+                    var productoElement = document.createElement("div");
+                    productoElement.innerHTML = "<strong>Nombre:</strong> " + nombre + "<br>" +
+                                                "<strong>Precio:</strong> $" + precio + "<br>" +
+                                                "<strong>Descripción:</strong> " + descripcion + "<br>" +
+                                                "<img src='" + urlImagen + "' width='100'><br><br>"; // Mostrar la imagen
+
+                    document.getElementById("productos_list").appendChild(productoElement);
+                });
+            });
+        }
+
+        // Llamar a la función para mostrar los productos al cargar la página
+        window.onload = mostrarProductos;
+    </script>
+
+    <h2>Productos Guardados:</h2>
+    <div id="productos_list"></div>
+</body>
+</html>
