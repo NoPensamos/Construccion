@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/stylesproducto.css">
+    <img class="imagen__logo" src="../Image/logo.png">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Formulario de Producto</h1>
+            <form id="formulario_producto">
+                <label for="nombre_producto">Nombre del Producto:</label><br>
+                <input type="text" id="nombre_producto" name="nombre_producto" required><br><br>
+                
+                <label for="precio_producto">Precio del Producto:</label><br>
+                <input type="number" id="precio_producto" name="precio_producto" min="0" step="0.01" required><br><br>
+                
+                <label for="descripcion_producto">Descripción del Producto:</label><br>
+                <textarea id="descripcion_producto" name="descripcion_producto" rows="4" cols="50" required></textarea><br><br>
+                
+                <label for="imagen_producto">Imagena del Producto:</label><br>
+                <input type="file" id="imagen_producto" name="imagen_producto" accept="image/*"><br><br>
+                
+                <input type="submit" value="Guardar Producto">
+            </form>
+    </div>
+    
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script>
+    <script src="../JS/firebase.js"></script>
+    <script src="../JS/producto.js"></script>
+</body>
+</html>
