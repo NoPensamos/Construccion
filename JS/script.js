@@ -37,7 +37,7 @@ class Login {
 
 // Función para redirigir a la página principal después del inicio de sesión o registro exitoso
 function redirectToPrincipalPage() {
-    window.location.href = "../HTML/principal.html";
+    window.location.href = "../HTML/index.html";
 }
 
 // Configura tu aplicación de Firebase
@@ -144,5 +144,6 @@ const formulario_register = document.querySelector(".formulario__register");
 const contenedor_login_register = document.querySelector(".contenedor__login-register");
 const caja_trasera_register = document.querySelector(".caja_trasera-register");
 const caja_trasera_login = document.querySelector(".caja_trasera-login");
+
 
 anchoPag();
