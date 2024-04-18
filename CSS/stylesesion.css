@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7060540c8128299afb852543d76e522cb478bb02
 *{
     margin: 0;
     padding: 0;
@@ -174,6 +177,7 @@ main{
     .contenedor__login-register form{
         position: relative;
     }
+<<<<<<< HEAD
 =======
 *{
     margin: 0;
@@ -351,4 +355,6 @@ main{
         position: relative;
     }
 >>>>>>> 7060540 (JS to main)
+=======
+>>>>>>> 7060540c8128299afb852543d76e522cb478bb02
 }
