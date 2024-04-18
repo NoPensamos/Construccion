@@ -145,4 +145,5 @@ const contenedor_login_register = document.querySelector(".contenedor__login-reg
 const caja_trasera_register = document.querySelector(".caja_trasera-register");
 const caja_trasera_login = document.querySelector(".caja_trasera-login");
 
+
 anchoPag();
