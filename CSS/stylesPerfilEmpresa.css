@@ -3,7 +3,7 @@ body {
     background-color: #ffffff;
     display: flex;
     justify-content: center;
-    background-image: url('/media/fondo.jpg');
+    background-image: url('../media/fondo.jpg');
     align-items: center;
     min-height: 100vh;
     margin: 0;
