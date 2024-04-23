@@ -3,8 +3,6 @@ const router = express.Router()
 
 const { Empresa, Producto } = require('../models/empresa');
 
-
-
 router.post("/addempresa",async (req,res)=>{
     const empresa = Empresa(req.body)
     await empresa.save().then((respuesta)=>{
@@ -36,7 +34,7 @@ router.get("/getempresa/:id", async (req,res)=>{
         })
     })
 })
-router.delete("/deleteempresa/:id", async (req,res)=>{
+/* router.delete("/deleteempresa/:id", async (req,res)=>{
     req.params.id
     await Empresa.findOneAndDelete({"_id":req.params.id}).then((respuesta)=>{
         res.json(respuesta)
@@ -45,7 +43,7 @@ router.delete("/deleteempresa/:id", async (req,res)=>{
             error: e
         })
     })
-})
+}) */
 
 
 // Get Productos segun una empresa en especifico
