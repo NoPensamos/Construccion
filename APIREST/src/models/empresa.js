@@ -9,8 +9,10 @@ const EmpresaSchema = new Schema({
 });
 
 const ProductoSchema = new Schema({
-    nombre: { type: String },
+    nombre: { type: String, required: true},
     precio: { type: Number },
+    descripcion: {type: String},
+    unidades: {type: Number},
     empresa: { type: Schema.Types.ObjectId, ref: 'Empresa' } // Referencia a la empresa
 });
 

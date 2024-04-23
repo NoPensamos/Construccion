@@ -1,13 +1,12 @@
 const express = require("express")
 const router = express.Router()
 
-
-
-const empresaSchema = require("../models/empresa")
-const { default: mongoose } = require("mongoose")
 const { Empresa, Producto } = require('../models/empresa');
+
+
+
 router.post("/addempresa",async (req,res)=>{
-    const empresa = empresaSchema(req.body)
+    const empresa = Empresa(req.body)
     await empresa.save().then((respuesta)=>{
         res.json({status:res.statusCode,resp: respuesta})
     }).catch((e)=>{
@@ -18,7 +17,7 @@ router.post("/addempresa",async (req,res)=>{
     console.log("Esperando")
 })
 router.get("/getempresas",async (req,res)=>{
-    await empresaSchema.find().then((respuesta)=>{
+    await Empresa.find().then((respuesta)=>{
         console.log(respuesta[0].email)
         res.json(respuesta)
     }).catch((e)=>{
@@ -29,7 +28,7 @@ router.get("/getempresas",async (req,res)=>{
 })
 
 router.get("/getempresa/:id", async (req,res)=>{
-    await empresaSchema.findById({"_id":req.params.id}).then((respuesta)=>{
+    await Empresa.findById({"_id":req.params.id}).then((respuesta)=>{
         res.json(respuesta)
     }).catch((e)=>{
         res.json({
@@ -39,7 +38,7 @@ router.get("/getempresa/:id", async (req,res)=>{
 })
 router.delete("/deleteempresa/:id", async (req,res)=>{
     req.params.id
-    await empresaSchema.findOneAndDelete({"_id":req.params.id}).then((respuesta)=>{
+    await Empresa.findOneAndDelete({"_id":req.params.id}).then((respuesta)=>{
         res.json(respuesta)
     }).catch((e)=>{
         res.json({
@@ -84,6 +83,8 @@ router.post("/addproducto/:idEmpresa", async (req, res) => {
         const nuevoProducto = new Producto({
             nombre: req.body.nombre,
             precio: req.body.precio,
+            descripcion: req.body.descripcion,
+            unidades: req.body.unidades,
             empresa: req.params.idEmpresa // Asigna la empresa al producto
         });
 
