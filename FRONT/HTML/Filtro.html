@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/stylesfiltro.css">
+    <title>Productos</title>
+
+</head>
+<body>
+    <h1>Filtrar Productos por Precio</h1>
+    <form id="filterForm">
+        <label for="minPrice">Precio mínimo:</label>
+        <input type="number" id="minPrice" name="minPrice">
+        <label for="maxPrice">Precio máximo:</label>
+        <input type="number" id="maxPrice" name="maxPrice">
+        <button type="submit">Filtrar</button>
+    </form>
+    <div id="productsContainer"></div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-storage-compat.js"></script>
+    <script>
+
+       // Configura tu aplicación de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBCO6FN2GvYXNjCxXAbs5ayT_QA-PV0J4g",
+            authDomain: "nopensamos-27b75.firebaseapp.com",
+            projectId: "nopensamos-27b75",
+            storageBucket: "nopensamos-27b75.appspot.com",
+            messagingSenderId: "133968142069",
+            appId: "1:133968142069:web:a10a25ac184161efb6efbc",
+            measurementId: "G-5BFTKN8PSW"
+        };
+
+        // Inicializa la aplicación de Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const database = firebase.database();
+        const productsRef = database.ref('productos');
+
+        productsRef.once('value', (snapshot) => {
+            console.log(snapshot.val());
+        });
+
+        const filterForm = document.getElementById('filterForm');
+        const productsContainer = document.getElementById('productsContainer');
+
+        filterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const minPrice = parseFloat(filterForm.minPrice.value);
+            const maxPrice = parseFloat(filterForm.maxPrice.value);
+            
+            console.log(`Filtrando productos entre ${minPrice} y ${maxPrice}`);
+            
+            // Limpiar el contenedor antes de agregar nuevos productos
+            productsContainer.innerHTML = '';
+
+            // Filtrar los productos dentro del rango especificado
+            productsRef.once('value', (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    const product = childSnapshot.val();
+                    const productName = product.nombre;
+                    const productPrice = parseFloat(product.precio);
+                    const urlImagen = product.urlImagen;
+
+                    if (productPrice >= minPrice && productPrice <= maxPrice) {
+
+                    var productElement = document.createElement('div');
+                    productElement.innerHTML = "<strong>Nombre:</strong> " + productName + "<br>" +
+                                                "<strong>Precio:</strong> $" + productPrice + "<br>" +
+                                                "<img src='" + urlImagen + "' width='100'><br><br>"; // Mostrar la imagen
+
+                                                // Agregar el evento de clic al div
+                        productElement.addEventListener('click', function() {
+                            // Aquí puedes agregar el código para manejar el evento de clic del div, como mostrar más detalles del producto, agregar al carrito, etc.
+                            console.log("Producto seleccionado:", productName);
+                        });
+                    productsContainer.appendChild(productElement);
+}
+                });
+            });
+        });
+    </script>
+</body>
+</html>
