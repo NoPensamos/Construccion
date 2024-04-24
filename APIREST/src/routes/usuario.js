@@ -1,3 +1,4 @@
+
 const express = require("express")
 const router = express.Router()
 
@@ -44,6 +45,33 @@ router.delete("/deleteusuario/:id", async (req,res)=>{
         })
     })
 })
+
+
+router.get("/login/:contra/:email", async (req,res)=>{
+    const { contra, email } = req.params; // Destructura los parámetros de la solicitud
+
+    try {
+        // Busca el usuario por su correo electrónico
+        const usuario = await usuarioSchema.findOne({ email });
+        
+        // Si no se encuentra el usuario, devuelve un mensaje de error
+        if (!usuario) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+        
+        // Compara la contraseña ingresada con la contraseña almacenada
+        if (usuario.contraseña !== contra) {
+            return res.status(401).json({ error: "Credenciales inválidas" });
+        }
+        
+        // Si las credenciales son válidas, devuelve el usuario
+        res.json(usuario);
+    } catch (error) {
+        // Si ocurre algún error, devuelve un mensaje de error genérico
+        console.error("Error en el inicio de sesión:", error);
+        res.status(500).json({ error: "Error en el servidor" });
+    }
+});
 
 /* router.put("/updateusuarioByID",async (req,res)=>{
     

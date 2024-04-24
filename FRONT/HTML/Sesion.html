@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +33,7 @@
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Correo Electrónico" id="login-email">
                     <input type="password" placeholder="Contraseña" id="login-password">
-                    <button type="submit">Entrar</button>
+                    <button type="submit" id="btn_login">Entrar</button>
                 </form>
                 <!--Registro-->
                 <form action="" class="formulario__register" id="register-form">
@@ -46,32 +47,8 @@
             </div>
         </div>
     </main>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="../JS/login.js"></script>
     <script src="../JS/script.js"></script>
-    <script src="../JS/script.js"></script>
-    <script>
-    
 
-        // Inicializa el objeto de inicio de sesión
-        const login = new Login();
-
-        // Agrega un listener para el evento "submit" del formulario de inicio de sesión
-        document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Evita el envío del formulario
-
-            const email = document.getElementById("login-email").value;
-            const password = document.getElementById("login-password").value;
-
-            login.signIn(email, password); // Llama al método de inicio de sesión en el objeto Login
-        });
-
-        // Agrega un listener para el evento de clic en el botón "Regístrarse"
-        document.getElementById("btn__registrarse").addEventListener("click", function() {
-            // Muestra el formulario de registro y oculta el formulario de inicio de sesión
-            document.querySelector(".contenedor__login-register").classList.add("active-register");
-        });
-    </script>
 </body>
-
 </html>

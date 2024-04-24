@@ -1,46 +1,21 @@
-// Importamos la función crearUsuario desde api.js
-import { crearUsuario } from "../JS/api.js";
 
-// Agregamos un listener para el evento "submit" del formulario de registro
-document.getElementById("register-form").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Evitamos el envío del formulario
-
-    // Recolectamos los valores del formulario
-    const fullName = document.getElementById("register-fullname").value;
+const botonRegistro = document.getElementById("btn__registrado")
+botonRegistro.onclick = async () => {
+    const nombre = document.getElementById("register-fullname").value;
     const email = document.getElementById("register-email").value;
-    const username = document.getElementById("register-username").value;
     const password = document.getElementById("register-password").value;
+    const usuario = {
 
-    // Creamos un objeto con los datos del nuevo usuario
-    const newUser = {
-        nombre: fullName,
+        nombre : nombre,
         email: email,
         contraseña: password,
-        role: "Usuario" // Por ejemplo, asignamos un rol predeterminado
-    };
-
-    try {
-        // Enviamos los datos del nuevo usuario a MongoDB
-        await crearUsuario(newUser);
-        console.log("Usuario registrado correctamente en MongoDB.");
-        // Aquí podrías redirigir a la página principal u otra acción después de registrar al usuario
-    } catch (error) {
-        console.error("Error al registrar usuario en MongoDB:", error);
-        // Aquí podrías mostrar un mensaje de error al usuario si la operación falla
+        rol : "Usuario"
     }
-});
+    await crearUsuario(usuario)
+}
 
-// Agrega un listener para el evento "submit" del formulario de inicio de sesión
-document.getElementById("login-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita el envío del formulario
 
-    const email = document.getElementById("login-email").value;
-    const password = document.getElementById("login-password").value;
-
-    // Aquí puedes agregar la lógica para iniciar sesión con MongoDB si lo necesitas
-});
-
-// Agrega un listener para el evento de clic en el botón "Registrarse"
+// Agrega un listener para el evento de clic en el botón "Regístrarse"
 document.getElementById("btn__registrarse").addEventListener("click", function() {
     // Muestra el formulario de registro y oculta el formulario de inicio de sesión
     document.querySelector(".contenedor__login-register").classList.add("active-register");
@@ -107,3 +82,4 @@ const caja_trasera_login = document.querySelector(".caja_trasera-login");
 
 
 anchoPag();
+
