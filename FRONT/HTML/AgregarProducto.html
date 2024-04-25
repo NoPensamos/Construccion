@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../JS/api.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/stylesproducto.css">
+</head>
+<body>
+    <img class="imagen__logo" src="../Image/logo.png">
+    <div class="contenedor">
+        <div class="titulo">Formulario de Producto</div>
+        <form class="form" id="formulario_producto">
+            <div class="form__box">
+                <label for="nombre_producto">Nombre del producto</label>
+                <input class="form__box__input" type="text" id="nombre_producto" name="nombre_producto" >
+            </div>
+            <div class="form__box">
+                <label for="precio_producto">Precio del producto</label>
+                <input class="form__box__input" type="number" id="precio_producto" name="precio_producto" min="0" step="0.1" >
+            </div>
+            <div class="form__box">
+                <label for="descripcion_producto">Descripción del producto</label>
+                <textarea class="form__box__input" id="descripcion_producto" name="descripcion_producto" ></textarea>
+            </div>
+            <div class="form__box">
+                <label for="imagen_producto" id="imagen_producto" >Imágen del producto</label>
+                <input class="form__box__subir" type="file"  name="imagen_producto" accept="image/*">
+            </div>
+            
+            <input class="form__box__button" type="submit" value="Guardar producto" id = "btn_producto">
+        </form>
+    </div>
+
+    <script src="../JS/productooo.js"></script>
+</body>
+
+</html>
