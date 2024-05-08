@@ -31,6 +31,7 @@
   }
 
   .perfil {
+    width: 70px;
     display: flex;
     justify-content: right;
     float: right;
@@ -46,7 +47,7 @@
   .perfil:hover ul {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 1px;
   }
 
   .perfil ul {
@@ -94,8 +95,19 @@
     margin-right: 2%;
   }
   .otros_productos{
-    display: inline-block;
-    
+    padding-top: 2%;
+    height: auto;
+    width: 50%;
+    margin-left:auto;
+    margin-right: auto;
+  }
+  .otros_productos button{
+    margin: 1% 2% 1% 3%;
+  }
+
+  .otros_productos img{
+    width: 170px;
+    margin-right: 2%;
   }
   /*.fa-solid fa-user{
     display: flex;
