@@ -6,12 +6,12 @@
     box-sizing: border-box;
   }
   
-  body {
+body {
     background: #F6F6F6;
     font-family: 'calibri';
   }
   
-  header {
+header {
     background: #BFD9D2;
     width: 100%;
     clear: both;
@@ -20,7 +20,7 @@
     align-items: center;
   }
   
-  .menu {
+.menu {
     width: 60%;
     margin-left: 100px;
     display: flex;
@@ -29,17 +29,18 @@
     margin-left: 15%;
     
   }
-  .carrito{
+.carrito{
     border: none;
     background-color: #BFD9D2;
     display: flex;
     float: right;
 
   }
-  .carrito img{
+.carrito img{
     width: 50px;
   }
-  .perfil {
+
+.perfil {
     width: 70px;
     display: flex;
     float: right;

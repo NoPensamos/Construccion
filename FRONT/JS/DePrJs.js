@@ -38,6 +38,8 @@ const contentAdditionalInformation = document.querySelector(
 );
 const contentReviews = document.querySelector('.text-reviews');
 
+
+
 // Funciones Toggle
 toggleDescription.addEventListener('click', () => {
 	contentDescription.classList.toggle('hidden');
