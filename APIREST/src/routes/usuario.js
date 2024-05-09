@@ -2,7 +2,9 @@
 const express = require("express")
 const router = express.Router()
 
-const usuarioSchema = require("../models/usuario")
+const usuarioSchema = require("../models/usuario");
+const  {Empresa} = require('../models/empresa');
+
 
 router.post("/addusuario",async (req,res)=>{
     const usuario = usuarioSchema(req.body)
@@ -47,6 +49,22 @@ router.delete("/deleteusuario/:id", async (req,res)=>{
 })
 
 
+
+//validar Email
+router.get("/Validaremail/:email", async(req,res)=>{
+    const email = req.params.email;
+    console.log("entre")
+    try{
+        const usuario = await usuarioSchema.findOne({ email });
+        const empresa = await Empresa.findOne({ email });
+    console.log(usuario,empresa)
+    }
+    
+    catch(error){
+            console.log(error)
+    }
+});
+
 router.get("/login/:contra/:email", async (req,res)=>{
     const { contra, email } = req.params; // Destructura los parámetros de la solicitud
 
@@ -56,21 +74,31 @@ router.get("/login/:contra/:email", async (req,res)=>{
         
         // Si no se encuentra el usuario, devuelve un mensaje de error
         if (!usuario) {
-            return res.status(404).json({ error: "Usuario no encontrado" });
+
+            return res.status(400).json({ error: "Usuario no encontrado" });
+
+
         }
         
         // Compara la contraseña ingresada con la contraseña almacenada
         if (usuario.contraseña !== contra) {
-            return res.status(401).json({ error: "Credenciales inválidas" });
+
+            return res.status(400).json({ error: "Credenciales inválidas" });
+
+
         }
         
         // Si las credenciales son válidas, devuelve el usuario
         res.json(usuario);
+
+        return res.status(200).json({status: true, mensaje: "Credenciales", data:{}})
+
     } catch (error) {
         // Si ocurre algún error, devuelve un mensaje de error genérico
         console.error("Error en el inicio de sesión:", error);
         res.status(500).json({ error: "Error en el servidor" });
     }
+
 });
 
 /* router.put("/updateusuarioByID",async (req,res)=>{

@@ -1,9 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../JS/api.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,35 +30,36 @@
                     <div>
                         <label>
                             <i class='bx bx-user' ></i>
-                            <input type="text" placeholder="Nombre Empresa" name="userName" >
+                            <input type="text" placeholder="Nombre Empresa" id="register-nombre" >
                         </label>
                     </div>
                     <div>
                         <label >
                             <i class='bx bx-envelope' ></i>
-                            <input type="email" placeholder="Correo Electronico" name="userEmail" >
+                            <input type="email" placeholder="Correo Electronico" id="register-email" >
                         </label>
                     </div>
                    <div>
                         <label>
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Contraseña" name="userPassword">
+                            <input type="password" placeholder="Contraseña" id="register-password">
                         </label>
                    </div>
                    <div>
                         <label>
                             <i class='bx bx-align-justify'></i>
-                            <input type="text" placeholder="Descripción General" name="Description">
+                            <input type="text" placeholder="Descripción General" id="register-des">
                         </label>
                    </div>
                    
-                    <input type="submit" value="Registrarse">
+                    <input type="submit" id="Registrarse">
                     <div class="alerta-error">Todos los campos son obligatorios</div>
                     <div class="alerta-exito">Te registraste correctamente</div>
                 </form>
             </div>
         </div>
     </div>
-    <script src="../JS/JSREmpresa.js"></script>
+    <script src="../JS/registroempresa.js"></script>
+    <script src = "../JS/JSREmpresa.js"></script>
 </body>
 </html>
