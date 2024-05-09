@@ -13,20 +13,11 @@ body {
 	background-color: #F6F6F6;
 }
 
-img {
-	max-width: 100%;
-}
-
 header {
 	display: flex;
 	align-items: center;
 	padding: 30px;
 	justify-content: center;
-}
-
-header img {
-	width: 20%;
-	height: 20%;
 }
 
 .container-title {
@@ -35,6 +26,47 @@ header img {
 	margin-bottom: 50px;
 	color: #222;
 }
+
+.logo{
+	height: 6%;
+	width: 6%;
+}
+
+.perfil {
+    width: 70px;
+    display: flex;
+    justify-content: right;
+    float: right;
+    margin-right: 0%;
+    margin-top: 1%;
+}
+  .perfil img {
+    margin-left: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+  .perfil:hover ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .perfil ul {
+    position: absolute;
+    text-align: center;
+    top: 80px;
+    z-index: 11;
+    display: none;
+  }
+
+  .perfil ul li {
+    font-size: 13px;
+    background-color: #BFD9D2;
+    padding: 10px;
+    z-index: 11;
+    border-style: solid;
+  }
 
 main {
 	display: flex;

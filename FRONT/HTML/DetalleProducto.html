@@ -8,25 +8,32 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Pagina Producto</title>
-		<link rel="stylesheet" href="DePrCSS.css" />
+		<link rel="stylesheet" href="../CSS/DePrCSS.css" />
 	</head>
 	<body>
-		<header>
-			<img src="/Image/logo.png" alt="logo">
-		</header>
+		<div class="container-title">
+			<img src="../media/logo2.png" alt="logo" class="logo">
 
-		<div class="container-title">Productos</div>
+			<div class="perfil">
+				<img src="../media/IMG PRINCIPAL/user-solid.svg">
+				<ul>            
+					<a href = "https://http.cat/status/404"><li>Ver perfil</a></li></a>
+					<a href = "https://http.cat/status/404"><li>Administrar</a></li></a>
+					<a href = "index.html"><li>Cerrar sesión</li> </a>  
+				</ul>
+				</div>
+		</div>
 
 		<main>
 			<div class="container-img">
 				<img
-					src="/Image/71768ae40d974db2cf12040e0352c891.jpg"
+					src="../media/IMG PRINCIPAL/shopify.svg"
 					alt="imagen-producto"
 				/>
 			</div>
 			<div class="container-info-product">
 				<div class="container-price">
-					<span>$120.000</span>
+					<span>$1</span>
 					<i class="fa-solid fa-angle-right"></i>
 				</div>
 
@@ -37,9 +44,9 @@
 							<option disabled selected value="">
 								Escoge una opción
 							</option>
-							<option value="Barcelona">Barcelona</option>
-							<option value="Psg">Psg</option>
-							<option value="Argentina">Argentina</option>
+							<option value="Opción 1">Opción 1</option>
+							<option value="Opción 2">Opción 2</option>
+							<option value="Opción 3">Opción 3</option>
 						</select>
 					</div>
 					<div class="form-group">
@@ -48,12 +55,9 @@
 							<option disabled selected value="">
 								Escoge una opción
 							</option>
-							<option value="XS">XS</option>
-							<option value="S">S</option>
-							<option value="M">M</option>
-							<option value="L">L</option>
-							<option value="XL">XL</option>
-							<option value="XXL">XXL</option>
+							<option value="Opción 1">Opción 1</option>
+							<option value="Opción 2">Opción 2</option>
+							<option value="Opción 3">Opción 3</option>
 						</select>
 					</div>
 					<button class="btn-clean">Limpiar</button>
@@ -68,10 +72,6 @@
 							min="1"
 							class="input-quantity"
 						/>
-						<div class="btn-increment-decrement">
-							<i class="fa-solid fa-chevron-up" id="increment"></i>
-							<i class="fa-solid fa-chevron-down" id="decrement"></i>
-						</div>
 					</div>
 					<button class="btn-add-to-cart">
 						<i class="fa-solid fa-plus"></i>
@@ -86,7 +86,7 @@
 					</div>
 					<div class="text-description">
 						<p>
-							Messi polera
+							Detalles
 						</p>
 					</div>
 				</div>
@@ -121,61 +121,61 @@
 				<div class="card">
 					<div class="card-img">
 						<img
-							src="/Image/real-madrid-home-2013-2014.webp"
+							src="../media/IMG PRINCIPAL/shopify.svg"
 							alt="producto-1"
 						/>
 					</div>
 					<div class="info-card">
 						<div class="text-product">
-							<h3>Real Madrid-Cristiano</h3>
-							<p class="category">Polera-Football</p>
+							<h3>Producto</h3>
+							<p class="category">Categoria-categoria</p>
 						</div>
-						<div class="price">$100.000</div>
+						<div class="price">$1</div>
 					</div>
 				</div>
 				<div class="card">
 					<div class="card-img">
 						<img
-							src="/Image/PhotoRoom_013_20230529_003306.jpg"
+							src="../media/IMG PRINCIPAL/shopify.svg"
 							alt="producto-2"
 						/>
 					</div>
 					<div class="info-card">
 						<div class="text-product">
-							<h3>Barcelona-Alexis</h3>
-							<p class="category">Polera-Football</p>
+							<h3>Producto</h3>
+							<p class="category">Categoria-categoria</p>
 						</div>
-						<div class="price">$80.000</div>
+						<div class="price">$1</div>
 					</div>
 				</div>
 				<div class="card">
 					<div class="card-img">
 						<img
-							src="/Image/images.jpeg"
+							src="../media/IMG PRINCIPAL/shopify.svg"
 							alt="producto-3"
 						/>
 					</div>
 					<div class="info-card">
 						<div class="text-product">
-							<h3>Barcelona-Neymar</h3>
-							<p class="category">Polera-Football</p>
+							<h3>Producto</h3>
+							<p class="category">Categoria-categoria</p>
 						</div>
-						<div class="price">$95.000</div>
+						<div class="price">$1</div>
 					</div>
 				</div>
 				<div class="card">
 					<div class="card-img">
 						<img
-							src="/Image/225145_1.webp"
+							src="../media/IMG PRINCIPAL/shopify.svg"
 							alt="producto-4"
 						/>
 					</div>
 					<div class="info-card">
 						<div class="text-product">
-							<h3>Mbappe-PSG</h3>
-							<p class="category">Polera-Football</p>
+							<h3>Producto</h3>
+							<p class="category">Categoria-categoria</p>
 						</div>
-						<div class="price">$105.000</div>
+						<div class="price">$1</div>
 					</div>
 				</div>
 			</div>
@@ -189,6 +189,6 @@
 			src="https://kit.fontawesome.com/81581fb069.js"
 			crossorigin="anonymous"
 		></script>
-		<script src="DePrJs.js"></script>
+		<script src="../JS/DePrJs.js"></script>
 	</body>
 </html>
