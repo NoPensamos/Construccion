@@ -1,13 +1,15 @@
 const express = require("express")
 const router = express.Router()
 
+
 const { Empresa, Producto} = require('../models/empresa');
+
 
 router.post("/addempresa",async (req,res)=>{
     const empresa = Empresa(req.body)
     await empresa.save().then((respuesta)=>{
         res.json({status:res.statusCode,resp: respuesta})
-        console.log("Registradooo")
+
     }).catch((e)=>{
         res.json({
             error: e
@@ -139,6 +141,7 @@ insertProductWithReference("hola", 100, "6627422f5c170bfad16ac2c8") */
     })
     
 }) */
+
 router.get("/login/:contra/:email", async (req,res)=>{
     const { contra, email } = req.params; // Destructura los parámetros de la solicitud
 
@@ -164,6 +167,7 @@ router.get("/login/:contra/:email", async (req,res)=>{
         res.status(500).json({ error: "Error en el servidor" });
     }
 });
+
 
 
 module.exports = router

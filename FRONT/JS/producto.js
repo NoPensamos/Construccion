@@ -1,3 +1,4 @@
+
 document.getElementById("formulario_producto").addEventListener("submit", function(event) {
             event.preventDefault(); // Evitar que el formulario se envíe por defecto
 
