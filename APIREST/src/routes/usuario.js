@@ -1,5 +1,7 @@
+
 const express = require("express")
 const router = express.Router()
+const cookieParser = require("cookie-parser"); // Importa cookie-parser
 
 const usuarioSchema = require("../models/usuario")
 
@@ -62,7 +64,7 @@ router.get("/login/:contra/:email", async (req,res)=>{
         if (usuario.contraseña !== contra) {
             return res.status(401).json({ error: "Credenciales inválidas" });
         }
-        
+        res.cookie('usuario_id', usuario._id, { maxAge: 86400000 }); // Cookie válida por 1 día (86400000 milisegundos)
         // Si las credenciales son válidas, devuelve el usuario
         res.json(usuario);
     } catch (error) {
@@ -72,6 +74,32 @@ router.get("/login/:contra/:email", async (req,res)=>{
     }
 });
 
+
+// Ruta para obtener los datos del usuario
+router.get("/perfil", async (req, res) => {
+    // Verifica si la cookie de sesión está presente
+    if (req.cookies.usuario_id) {
+        try {
+            // Recupera el usuario utilizando el ID almacenado en la cookie
+            const usuario = await usuarioSchema.findById(req.cookies.usuario_id);
+            
+            // Si el usuario existe, envía sus datos como respuesta
+            if (usuario) {
+                res.json(usuario);
+            } else {
+                // Si el usuario no existe, devuelve un mensaje de error
+                res.status(404).json({ error: "Usuario no encontrado" });
+            }
+        } catch (error) {
+            // Si hay algún error, devuelve un mensaje de error genérico
+            console.error('Error al obtener los datos del usuario:', error);
+            res.status(500).json({ error: "Error al obtener los datos del usuario" });
+        }
+    } else {
+        // Si la cookie no está presente, devuelve un mensaje de error
+        res.status(401).json({ error: "No se ha iniciado sesión" });
+    }
+});
 /* router.put("/updateusuarioByID",async (req,res)=>{
     
     usuarioSchema.findOneAndUpdate({"_id":req.body.id},{"marca":req.body.nombre},{new:true}).then((respuesta)=>{

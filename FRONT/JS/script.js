@@ -1,3 +1,4 @@
+
 const botonRegistro = document.getElementById("btn__registrado")
 botonRegistro.onclick = async () => {
     const nombre = document.getElementById("register-fullname").value;
@@ -81,3 +82,4 @@ const caja_trasera_login = document.querySelector(".caja_trasera-login");
 
 
 anchoPag();
+

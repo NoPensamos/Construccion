@@ -1,14 +1,1 @@
-body {
-    background-color: #BFD9D2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-}
-#filterForm {
-    margin-bottom: 20px;
-}
 
