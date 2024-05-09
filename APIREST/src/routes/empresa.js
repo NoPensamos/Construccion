@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 
-const { Empresa, Producto } = require('../models/empresa');
+const { Empresa, Producto} = require('../models/empresa');
 
 router.post("/addempresa",async (req,res)=>{
     const empresa = Empresa(req.body)
@@ -139,6 +139,31 @@ insertProductWithReference("hola", 100, "6627422f5c170bfad16ac2c8") */
     })
     
 }) */
+router.get("/login/:contra/:email", async (req,res)=>{
+    const { contra, email } = req.params; // Destructura los parámetros de la solicitud
+
+    try {
+        // Busca el Empresa por su correo electrónico
+        const empresa = await Empresa.findOne({ email });
+        
+        // Si no se encuentra el Empresa, devuelve un mensaje de error
+        if (!empresa) {
+            return res.status(404).json({ error: "Empresa no encontrado" });
+        }
+        
+        // Compara la contraseña ingresada con la contraseña almacenada
+        if (empresa.contraseña !== contra) {
+            return res.status(401).json({ error: "Credenciales inválidas" });
+        }
+        
+        // Si las credenciales son válidas, devuelve el Empresa
+        res.json(empresa);
+    } catch (error) {
+        // Si ocurre algún error, devuelve un mensaje de error genérico
+        console.error("Error en el inicio de sesión:", error);
+        res.status(500).json({ error: "Error en el servidor" });
+    }
+});
 
 
 module.exports = router
