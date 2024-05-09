@@ -1,4 +1,5 @@
 const botonLogin = document.getElementById("btn_login")
+localStorage.clear();
 botonLogin.onclick = async () => {
   event.preventDefault();
     const email = document.getElementById("login-email").value;
@@ -8,6 +9,7 @@ botonLogin.onclick = async () => {
       // Envía una solicitud POST al servidor para iniciar sesión
       const response = await axios.get(`http://localhost:3000/api/usuario/login/${password}/${email}`);
       console.log(response.data)
+      localStorage.setItem('usuario', JSON.stringify(response.data));
       // Si la solicitud es exitosa, muestra un mensaje de éxito
       redirectToPrincipalPage();
   } catch (error) {
@@ -17,5 +19,4 @@ botonLogin.onclick = async () => {
 }
 
 function redirectToPrincipalPage() {
-  window.location.href = "../HTML/index.html";
-}
+  window.location.href = "../HTML/index 2.html";}
