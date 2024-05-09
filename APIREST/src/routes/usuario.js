@@ -77,7 +77,6 @@ router.get("/login/:contra/:email", async (req,res)=>{
 
             return res.status(400).json({ error: "Usuario no encontrado" });
 
-            return res.status(404).json({ error: "Usuario no encontrado" });
 
         }
         
@@ -86,7 +85,6 @@ router.get("/login/:contra/:email", async (req,res)=>{
 
             return res.status(400).json({ error: "Credenciales inválidas" });
 
-            return res.status(401).json({ error: "Credenciales inválidas" });
 
         }
         
