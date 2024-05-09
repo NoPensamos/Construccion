@@ -17,5 +17,5 @@ botonLogin.onclick = async () => {
 }
 
 function redirectToPrincipalPage() {
-  window.location.href = "../HTML/index.html";
+  window.location.href = "../HTML/index2.html";
 }
