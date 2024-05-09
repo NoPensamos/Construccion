@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../JS/api.js"></script>
-    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../CSS/CssREmpresa.css">
-    
-    <title>Registro Empresas</title>
+    <title>Registro empresas</title>
 </head>
 <body>
     <div class="container-form register">
         <div class="information">
             <div class="info-childs">
-                <img src="../IMG/logoc.png">
+                <img src="../media/logo.png">
                 <h2>Bienvenido</h2>
-                <p>Aquí puedes registrar tu Empresa en nuestra página</p>
+                <p>Aquí puedes registrar tu empresa en nuestra página</p>
             </div>
         </div>
         <div class="form-information">
@@ -27,35 +27,35 @@
                     <div>
                         <label>
                             <i class='bx bx-user' ></i>
-                            <input type="text" placeholder="Nombre Empresa"  id = "register-nombre">
+                            <input type="text" placeholder="Nombre Empresa" name="userName" >
                         </label>
                     </div>
                     <div>
                         <label >
                             <i class='bx bx-envelope' ></i>
-                            <input type="text" placeholder="Correo Electronico"  id = "register-email">
+                            <input type="email" placeholder="Correo Electronico" name="userEmail" >
                         </label>
                     </div>
                    <div>
                         <label>
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Contraseña" id = "register-password">
+                            <input type="password" placeholder="Contraseña" name="userPassword">
                         </label>
                    </div>
                    <div>
                         <label>
                             <i class='bx bx-align-justify'></i>
-                            <input type="text" placeholder="Descripción General"  id = "register-des">
+                            <input type="text" placeholder="Descripción General" name="Description">
                         </label>
                    </div>
                    
-                   <button type="submit" id="btn__registradologin" href="creacionPerfilEmpresa.html">Registrarse</button>
+                    <input type="submit" value="Registrarse">
+                    <div class="alerta-error">Todos los campos son obligatorios</div>
+                    <div class="alerta-exito">Te registraste correctamente</div>
                 </form>
             </div>
         </div>
     </div>
-
-    <script src="../JS/registroempresa.js"></script>
-    
+    <script src="../JS/JSREmpresa.js"></script>
 </body>
 </html>
