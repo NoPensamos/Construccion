@@ -1,54 +1,118 @@
-*{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-} 
-/*body{ 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    /*min-height: 100vh; 
-    background-color: #F6F6F6; 
-}*/ 
-.contenedor{ 
-    margin-top: 1%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-} 
-table{ 
-    color: black; 
-    font-size: 14px; 
-    table-layout: fixed; 
-    border-collapse:collapse ; 
-} 
-thead{ 
-    background-color: #BFD9D2; 
-} 
-th{ 
-    padding: 20px 15px; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-} 
-td{ 
-    padding: 15px; 
+*{  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+/*body{  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+    /*min-height: 100vh;  
+    background-color: #F6F6F6;  
+}*/  
+.contenedor{  
+    margin-top: 1%;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+}  
+table{  
+    color: black;  
+    font-size: 14px;  
+    table-layout: fixed;  
+    border-collapse:collapse ;  
+}  
+thead{  
+    background-color: #BFD9D2;  
+}  
+th{  
+    padding: 20px 15px;  
+    font-weight: 700;  
+    text-transform: uppercase;  
+}  
+td{  
+    padding: 15px;  
     border-bottom: solid 1px #BFD9D2; 
+    text-align: center;  
+}  
+tbody tr{  
+    cursor: pointer;  
+}  
+tbody tr:hover{  
+    background-color: #BFD9D2;  
+}  
+td button{  
+    margin: 10px;  
+    padding: 10px;  
+    border-radius: 10px;  
+  
+}  
+.Actualizar{  
+    background-color:forestgreen;  
+}  
+.Actualizar:hover {   
+	background-color: darkgreen;} 
+.eliminar{  
+    background-color: crimson;  
 } 
-tbody tr{ 
-    cursor: pointer; 
-} 
-tbody tr:hover{ 
-    background-color: #BFD9D2; 
-} 
-td button{ 
-    margin: 10px; 
-    padding: 10px; 
+.eliminar:hover {   
+	background-color: darkred;} 
+.añadir{  
+    background-color: #BFD9D2;  
+    width: 10%; 
+    margin: 10px;  
+    padding: 10px;  
     border-radius: 10px; 
- 
-} 
-.Actualizar{ 
-    background-color:forestgreen; 
-} 
-.eliminar{ 
-    background-color: crimson; 
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+    color: black;
+}  
+.añadir:hover{ 
+    background-color:#02B182; 
+}  
+.img{ 
+    width: 100%; 
 }
+.container {
+    cursor: pointer;
+  }
+  
+  .container input {
+    display: none;
+  }
+  
+  .container svg {
+    overflow: visible;
+  }
+  
+  .path {
+    fill: none;
+    stroke: black;
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke-dasharray 0.5s ease, stroke-dashoffset 0.5s ease;
+    stroke-dasharray: 241 9999999;
+    stroke-dashoffset: 0;
+  }
+  
+  .container input:checked ~ svg .path {
+    stroke-dasharray: 70.5096664428711 9999999;
+    stroke-dashoffset: -262.2723388671875;
+  }
+  .pago{  
+        background-color: #BFD9D2;  
+        margin: 10px;  
+        padding: 10px;  
+        border-radius: 10px; 
+        display: flex;  
+ 
+        color: black;
+    }
+    .todo button{  
+        margin: 10px;  
+        padding: 10px;  
+        border-radius: 10px;  
+      
+    }
