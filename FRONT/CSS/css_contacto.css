@@ -65,7 +65,7 @@
     background-color: #eee; 
 } 
   
-button { 
+.enviar { 
     width: 100%; 
     padding: 8px; 
     margin-bottom: 16px; 
@@ -78,7 +78,7 @@ button {
     border: #a2c2ee; 
 } 
   
-button:hover { 
+.enviar:hover { 
     background-color: rgb(52, 98, 58); 
 } 
   

@@ -107,12 +107,14 @@ td button{
         padding: 10px;  
         border-radius: 10px; 
         display: flex;  
- 
         color: black;
+    }
+    .todo{
+        display:flex;
+        justify-content: center;
     }
     .todo button{  
         margin: 10px;  
         padding: 10px;  
         border-radius: 10px;  
-      
     }
