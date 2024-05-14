@@ -1,9 +1,10 @@
 
 const express = require("express")
 const router = express.Router()
-const cookieParser = require("cookie-parser"); // Importa cookie-parser
 
-const usuarioSchema = require("../models/usuario")
+const usuarioSchema = require("../models/usuario");
+const  {Empresa} = require('../models/empresa');
+
 
 router.post("/addusuario",async (req,res)=>{
     const usuario = usuarioSchema(req.body)
@@ -48,6 +49,22 @@ router.delete("/deleteusuario/:id", async (req,res)=>{
 })
 
 
+
+//validar Email
+router.get("/Validaremail/:email", async(req,res)=>{
+    const email = req.params.email;
+    console.log("entre")
+    try{
+        const usuario = await usuarioSchema.findOne({ email });
+        const empresa = await Empresa.findOne({ email });
+    console.log(usuario,empresa)
+    }
+    
+    catch(error){
+            console.log(error)
+    }
+});
+
 router.get("/login/:contra/:email", async (req,res)=>{
     const { contra, email } = req.params; // Destructura los parámetros de la solicitud
 
@@ -57,49 +74,31 @@ router.get("/login/:contra/:email", async (req,res)=>{
         
         // Si no se encuentra el usuario, devuelve un mensaje de error
         if (!usuario) {
-            return res.status(404).json({ error: "Usuario no encontrado" });
+
+            return res.status(400).json({ error: "Usuario no encontrado" });
+
+
         }
         
         // Compara la contraseña ingresada con la contraseña almacenada
         if (usuario.contraseña !== contra) {
-            return res.status(401).json({ error: "Credenciales inválidas" });
+
+            return res.status(400).json({ error: "Credenciales inválidas" });
+
+
         }
-        res.cookie('usuario_id', usuario._id, { maxAge: 86400000 }); // Cookie válida por 1 día (86400000 milisegundos)
-        // Si las credenciales son válidas, devuelve el usuario
-        res.json(usuario);
+
+
+        return res.status(200).json({status: true, mensaje: "Credenciales", data:usuario})
+
     } catch (error) {
         // Si ocurre algún error, devuelve un mensaje de error genérico
         console.error("Error en el inicio de sesión:", error);
         res.status(500).json({ error: "Error en el servidor" });
     }
+
 });
 
-
-// Ruta para obtener los datos del usuario
-router.get("/perfil", async (req, res) => {
-    // Verifica si la cookie de sesión está presente
-    if (req.cookies.usuario_id) {
-        try {
-            // Recupera el usuario utilizando el ID almacenado en la cookie
-            const usuario = await usuarioSchema.findById(req.cookies.usuario_id);
-            
-            // Si el usuario existe, envía sus datos como respuesta
-            if (usuario) {
-                res.json(usuario);
-            } else {
-                // Si el usuario no existe, devuelve un mensaje de error
-                res.status(404).json({ error: "Usuario no encontrado" });
-            }
-        } catch (error) {
-            // Si hay algún error, devuelve un mensaje de error genérico
-            console.error('Error al obtener los datos del usuario:', error);
-            res.status(500).json({ error: "Error al obtener los datos del usuario" });
-        }
-    } else {
-        // Si la cookie no está presente, devuelve un mensaje de error
-        res.status(401).json({ error: "No se ha iniciado sesión" });
-    }
-});
 /* router.put("/updateusuarioByID",async (req,res)=>{
     
     usuarioSchema.findOneAndUpdate({"_id":req.body.id},{"marca":req.body.nombre},{new:true}).then((respuesta)=>{

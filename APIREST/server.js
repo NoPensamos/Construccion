@@ -1,9 +1,11 @@
+
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 const app = express()
 require("dotenv").config()
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 app.use(cors())
 app.get("/",(req,res)=>{
@@ -21,3 +23,4 @@ app.use("/api/empresa",require("./src/routes/empresa"))
 app.listen(process.env.PORT,()=>{
     console.log(`Servidor esta corriendo en http://localhost:${process.env.PORT}`)
 })
+

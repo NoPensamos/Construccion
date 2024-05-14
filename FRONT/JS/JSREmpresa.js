@@ -1,3 +1,4 @@
+
 const formRegister = document.querySelector(".form-register");
 const inputUser = document.querySelector('.form-register input[type="text"]');
 const inputPass = document.querySelector('.form-register input[type="password"]');
