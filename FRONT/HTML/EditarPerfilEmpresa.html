@@ -50,10 +50,8 @@
     </div>
 
     <script>
-        // Obtener el objeto 'usuario' del localStorage
         let usuario = JSON.parse(localStorage.getItem('usuario'));
 
-        // Asignar los valores al campo 'Nombre' y 'Descripción'
         document.getElementById('nombre').value = usuario.nombre;
         document.getElementById('descripcion').value = usuario.email;
     </script>

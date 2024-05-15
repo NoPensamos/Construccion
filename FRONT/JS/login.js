@@ -10,7 +10,7 @@ botonLogin.onclick = async () => {
       // Envía una solicitud POST al servidor para iniciar sesión
       const response = await axios.get(`http://localhost:3000/api/usuario/login/${password}/${email}`);
       console.log(response.data)
-      localStorage.setItem('usuario', JSON.stringify(response.data));
+      localStorage.setItem('usuario', JSON.stringify(response.data.data));
       // Si la solicitud es exitosa, muestra un mensaje de éxito
       redirectToPrincipalPage();
   } catch (error) {
