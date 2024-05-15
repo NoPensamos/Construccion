@@ -246,23 +246,24 @@ main {
 	margin-top: 25px;
 }
 
+/*Estrellitas*/
 .rating {
 	display: flex;
 	flex-direction: row-reverse;
 	gap: 0.3rem;
 	--stroke: #666;
 	--fill: #ffc73a;
-  }
+}
   
-  .rating input {
+.rating input {
 	appearance: unset;
-  }
+}
   
-  .rating label {
+.rating label {
 	cursor: pointer;
-  }
-  
-  .rating svg {
+}
+
+.rating svg {
 	width: 2rem;
 	height: 2rem;
 	overflow: visible;
@@ -272,19 +273,19 @@ main {
 	stroke-dasharray: 12;
 	animation: idle 4s linear infinite;
 	transition: stroke 0.2s, fill 0.5s;
-  }
+}
   
-  @keyframes idle {
+@keyframes idle {
 	from {
 	  stroke-dashoffset: 24;
 	}
-  }
+}
   
-  .rating label:hover svg {
+.rating label:hover svg {
 	stroke: var(--fill);
-  }
+}
   
-  .rating input:checked ~ label svg {
+.rating input:checked ~ label svg {
 	transition: 0s;
 	animation: idle 4s linear infinite, yippee 0.75s backwards;
 	fill: var(--fill);
@@ -293,9 +294,9 @@ main {
 	stroke-dasharray: 0;
 	stroke-linejoin: miter;
 	stroke-width: 8px;
-  }
+}
   
-  @keyframes yippee {
+@keyframes yippee {
 	0% {
 	  transform: scale(1);
 	  fill: var(--fill);
@@ -329,7 +330,58 @@ main {
 	  transform: scale(1.2);
 	  fill: var(--fill);
 	}
-  }/* Estrellitas*/
+
+}/* Estrellitas*/
+
+
+/*Input Reseña*/
+.input-container {
+	position: relative;
+	margin: 50px auto;
+	width: 570px;
+}
+  
+.input-container input[type="text"] {
+	font-size: 20px;
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	padding: 5px 0;
+	background-color: transparent;
+	outline: none;
+}
+  
+.input-container .label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #ccc;
+	transition: all 0.3s ease;
+	pointer-events: none;
+}
+  
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+	top: -20px;
+	font-size: 16px;
+	color: #333;
+}
+  
+.input-container .underline {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	width: 100%;
+	background-color: #333;
+	transform: scaleX(0);
+	transition: all 0.3s ease;
+}
+  
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+	transform: scaleX(1);
+}/*Input Reseña*/
 
 .reseña{
 	display: flex;
