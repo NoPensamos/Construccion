@@ -26,15 +26,20 @@
                 <textarea class="form__box__input" id="descripcion_producto" name="descripcion_producto" ></textarea>
             </div>
             <div class="form__box">
-                <label for="imagen_producto" id="imagen_producto" >Imágen del producto</label>
-                <input class="form__box__subir" type="file"  name="imagen_producto" accept="image/*">
+                <label for="unidades_producto">Unidades</label>
+                <input class="form__box__input" type="number" id="unidades_producto" name="unidades_producto" >
             </div>
+            <div class="form-group">
+                <label for="image_url">URL de la Imagen</label>
+                <input type="url" id="image_url" name="image_url" required>
+            </div>
+
             
             <input class="form__box__button" type="submit" value="Guardar producto" id = "btn_producto">
         </form>
     </div>
 
-    <script src="../JS/productooo.js"></script>
+    <script src="../JS/ingresoproductos.js"></script>
 </body>
 
 </html>
