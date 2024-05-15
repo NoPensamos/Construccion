@@ -7,6 +7,7 @@ require("dotenv").config()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+
 app.use(cors())
 app.get("/",(req,res)=>{
     res.send("")
@@ -17,8 +18,10 @@ mongoose.connect(process.env.MONGODB_URL).then(async ()=>{
     console.log(error)
 })
 
+
 app.use("/api/usuario",require("./src/routes/usuario"))
 app.use("/api/empresa",require("./src/routes/empresa"))
+app.use('/api/productos', require('./src/routes/productos'));
 
 app.listen(process.env.PORT,()=>{
     console.log(`Servidor esta corriendo en http://localhost:${process.env.PORT}`)
