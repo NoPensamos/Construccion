@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Por favor no crear duplicados de las carpetas. 
 Para archivos de FRONT
 Imagenes dentro de /media
@@ -6,3 +7,13 @@ Carpetas CSS, HTML y JS para cada tipo de archivo.
 
 
 
+=======
+Por favor no crear duplicados de las carpetas. 
+Para archivos de FRONT
+Imagenes dentro de /media
+Guías, mockups dentro de /Mockups
+Carpetas CSS, HTML y JS para cada tipo de archivo.
+
+
+
+>>>>>>> 86cfbaeeaf3e82fd3b382e940721c0b849cb9832
