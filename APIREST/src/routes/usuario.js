@@ -77,7 +77,6 @@ router.get("/login/:contra/:email", async (req,res)=>{
 
             return res.status(400).json({ error: "Usuario no encontrado" });
 
-            return res.status(404).json({ error: "Usuario no encontrado" });
 
         }
         
@@ -86,14 +85,11 @@ router.get("/login/:contra/:email", async (req,res)=>{
 
             return res.status(400).json({ error: "Credenciales inválidas" });
 
-            return res.status(401).json({ error: "Credenciales inválidas" });
 
         }
-        
-        // Si las credenciales son válidas, devuelve el usuario
-        res.json(usuario);
 
-        return res.status(200).json({status: true, mensaje: "Credenciales", data:{}})
+
+        return res.status(200).json({status: true, mensaje: "Credenciales", data:usuario})
 
     } catch (error) {
         // Si ocurre algún error, devuelve un mensaje de error genérico
@@ -102,6 +98,7 @@ router.get("/login/:contra/:email", async (req,res)=>{
     }
 
 });
+
 
 /* router.put("/updateusuarioByID",async (req,res)=>{
     
