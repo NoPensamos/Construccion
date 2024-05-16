@@ -48,12 +48,8 @@ const regiones = [
       center: chile
     });
 
-    // Obtener referencia al botón "Guardar cambios"
-    const botonGuardarCambios = document.getElementById('guardarCambios');
-
-  // Agregar evento de clic al botón
+    const botonGuardarCambios = document.getElementById('agregarUbicación');
     botonGuardarCambios.addEventListener('click', function() {
-    // Redirigir a la página deseada
     window.location.href = 'https://http.cat/status/404';
   });
   
@@ -74,7 +70,6 @@ const regiones = [
     const regionSelect = document.getElementById('region');
     const comunaSelect = document.getElementById('comuna');
   
-    // Llenar el selector de regiones
     regiones.forEach(region => {
       const option = document.createElement('option');
       option.value = region;
@@ -82,7 +77,6 @@ const regiones = [
       regionSelect.add(option);
     });
   
-    // Agregar evento change al selector de regiones
     regionSelect.addEventListener('change', function() {
       const selectedRegion = this.value;
       comunaSelect.innerHTML = '<option value="">Seleccione una comuna</option>';

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const productos = require('../models/productos'); // Ajusta la ruta según tu estructura de archivos
+const { Producto } = require('../models/empresa');
 
 // Crear un nuevo productoso
 router.post('/addproductos', async (req, res) => {
@@ -63,7 +64,8 @@ router.patch('/productos/:id', async (req, res) => {
 });
 
 // Eliminar un productoso por ID
-router.delete('/productos/:id', async (req, res) => {
+/*
+router.delete('/deleteproductos/:id', async (req, res) => {
     try {
         const productos = await productos.findByIdAndDelete(req.params.id);
         if (!productos) {
@@ -73,6 +75,37 @@ router.delete('/productos/:id', async (req, res) => {
     } catch (error) {
         res.status(500).send(error);
     }
-});
+});*/
+
+router.delete("/deleteproductos/:id", async (req,res)=>{
+    req.params.id
+    await productos.findOneAndDelete({"_id":req.params.id}).then((respuesta)=>{
+        res.json(respuesta)
+    }).catch((e)=>{
+        res.json({
+            error: e
+        })
+    })
+})
+/*
+router.delete('/productos/:id', async (req, res) => {
+    try {
+        console.log(`Petición para eliminar producto con id: ${req.params.id}`);
+        
+        const productoEliminado = await Producto.findByIdAndDelete(req.params.id);
+        
+        if (!productoEliminado) {
+            console.log(`Producto con id: ${req.params.id} no encontrado`);
+            return res.status(404).send({ mensaje: 'Producto no encontrado' });
+        }
+
+        res.status(200).send(productoEliminado);
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+        res.status(500).send({ error: 'Error al eliminar el producto', detalle: error.message });
+    }
+});*/
+
+
 
 module.exports = router;
