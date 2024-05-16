@@ -25,9 +25,10 @@
            <div class="perfil">
             <img src="../media/IMG PRINCIPAL/user-solid.svg">
             <ul>            
-                <a href = "https://http.cat/status/404"><li>Ver perfil</a></li></a>
+                <a href = "perfil.html"><li>Ver perfil</a></li></a>
                 <a href = "EditarPerfilEmpresa.html"><li>Administrar</a></li></a>
-                <a href = "Sesion.html"><li>Cerrar sesión</li> </a>  
+                <a href = "productosAdmin.html"><li>Ingresar Productos</li> </a>  
+                <a href = "Sesion.html"><li>Cerrar sesión</li> </a>   
             </ul>
             </div>
         </header>
@@ -47,7 +48,11 @@
         </div> 
         <div class="contenedor"> 
             <table> 
-        <button class="añadir" ><a href="productosAdmin.html">Añadir producto</a></button> 
+                <button class="boton-user" onclick="goBack()">
+                    <span>Volver</span>
+                  </button>
+                <button class="añadir" ><a href="productosAdmin.html">
+                    <span>Añadir producto</span></a></button> 
             </table> 
         </div> 
         <div  class="contenedor"> 
@@ -71,41 +76,67 @@
                 async function fetchProducts() {
                     try {
                         const response = await axios.get('http://localhost:3000/api/productos/getproductos');
-                        console.log('Productos:', response.image);
                         return response.data;
                     } catch (error) {
                         console.error('Error fetching products:', error);
                         return [];
                     }
                 }
-              
+        
                 // Función para mostrar los productos en el HTML
                 async function showProducts() {
                     const products = await fetchProducts();
                     const container = document.getElementById("contenedor");
                     container.innerHTML = ""; // Limpiar el contenedor
-              
+        
                     products.forEach(function(product) {
                         const productHTML = `
-                            <tr">
+                            <tr>
                                 <td>${product.name}</td>
-                                <td>${product.description}
+                                <td>${product.description}</td>
                                 <td>${product.units}</td>
                                 <td>${product.price}</td> 
-                            <td>
-                                <button class="Actualizar"><span>Actualizar</span></button>
-                                <button class="eliminar"><span>Desabilitar</span></button>
-                            </td> 
-                            <td><img class="imagen" src="${product.imageUrl}" alt="${product.name}"></td> 
+                                <td>
+                                    <button class="Actualizar"><span>Actualizar</span></button>
+                                    <button class="eliminar" data-id="${product._id}"><span>Deshabilitar</span></button>
+                                </td> 
+                                <td><img class="imagen" src="${product.imageUrl}" alt="${product.name}"></td> 
                             </tr> 
                         `;
                         container.innerHTML += productHTML;
                     });
+        
+                    // Añadir manejadores de evento para los botones de eliminar
+                    const deleteButtons = document.querySelectorAll(".eliminar");
+                    deleteButtons.forEach(button => {
+                        button.addEventListener('click', async function() {
+                            const productId = this.getAttribute('data-id');
+                            console.log(`Intentando eliminar producto con id: ${productId}`);
+                            await deleteProduct(productId);
+                        });
+                    });
                 }
-              
+        
+                // Función para eliminar un producto
+                async function deleteProduct(id) {
+                    try {
+                        
+                        const response = await axios.delete(`http://localhost:3000/api/productos/deleteproductos/${id}`);
+                        if (response.status === 200) {
+                            alert('Producto eliminado exitosamente');
+                            // Refrescar la lista de productos
+                            showProducts();
+                        }
+                    } catch (error) {
+                        console.error('Error deleting product:', error);
+                        alert('Error al eliminar el producto');
+                        console.log(error);
+                    }
+                }
+        
                 // Llamar a la función para mostrar los productos cuando la página cargue
                 window.onload = showProducts;
-              </script>      
+            </script>         
         </div> 
     </body> 
 </html>
