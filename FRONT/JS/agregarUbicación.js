@@ -47,6 +47,15 @@ const regiones = [
       zoom: 8,
       center: chile
     });
+
+    // Obtener referencia al botón "Guardar cambios"
+    const botonGuardarCambios = document.getElementById('guardarCambios');
+
+  // Agregar evento de clic al botón
+    botonGuardarCambios.addEventListener('click', function() {
+    // Redirigir a la página deseada
+    window.location.href = 'https://http.cat/status/404';
+  });
   
     marker = new google.maps.Marker({
       position: chile,
