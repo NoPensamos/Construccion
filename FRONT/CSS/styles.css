@@ -55,7 +55,6 @@
   .perfil:hover ul {
     display: flex;
     flex-direction: column;
-    gap: 1px;
     position: absolute;
     margin-top: -0.25%;
   }
@@ -69,11 +68,13 @@
   }
 
   .perfil ul li {
-    font-size: 13px;
+    font-size: 14px;
     background-color: #BFD9D2;
-    padding: 5px;
+    padding: 4px;
     z-index: 11;
     border-style: solid;
+    transition: .5s;
+    border-radius: 10%;
   }
 
 /*Productos*/
@@ -455,3 +456,26 @@ h1 {
   opacity: 1;
   left: -20;
  }
+ .container-h2 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.form-productos {
+  margin-bottom: 15px;
+}
+.form-productos label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-productos input, .form-gproductos textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-productos textarea {
+  resize: vertical;
+}
