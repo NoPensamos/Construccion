@@ -159,3 +159,55 @@ textarea::placeholder {
 }
 
 
+.boton-user {
+  display: inline-block;
+  border-radius: 4px;
+  border-color: #000000;
+  background-color: #d9bfc6;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: -10px;
+ }
+ 
+ .boton-user span {
+  cursor: pointer;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+ }
+ 
+ .boton-user span:after {
+  content: '«';
+  position: absolute;
+  justify-content: left;
+  opacity: 0;
+  top: 0;
+  right:60px;
+  transition: 0.5s;
+ }
+ 
+ .boton-user:hover span {
+  padding-left: 30px;
+ }
+ 
+ .boton-user:hover span:after {
+  opacity: 1;
+  right: -20;
+ }
+ .container-user {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}

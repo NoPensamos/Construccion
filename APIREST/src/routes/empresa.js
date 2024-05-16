@@ -18,16 +18,15 @@ router.post("/addempresa",async (req,res)=>{
     console.log("Esperando")
 })
 
-router.get("/getempresas",async (req,res)=>{
-    await Empresa.find().then((respuesta)=>{
-        console.log(respuesta[0].email)
-        res.json(respuesta)
-    }).catch((e)=>{
-        res.json({
-            error: e
-        })
-    })
-})
+router.get('/getempresa', async (req, res) => {
+    try {
+        const empresa = await Empresa.find({});
+        console.log('holaaaaaaaaaa')
+        res.status(200).send(empresa);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
 
 router.get("/getempresa/:id", async (req,res)=>{
     await Empresa.findById({"_id":req.params.id}).then((respuesta)=>{

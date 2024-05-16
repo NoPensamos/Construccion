@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="container">
+        <button class="boton-user" onclick="goBack()">
+            <span>Volver</span>
+          </button>
         <div class="logo-container">
             <img src="../media/logo.png" width="150" height="auto" alt="logo">
         </div>
@@ -63,6 +66,10 @@
         saveButton.addEventListener('click', function() {
           window.location.href = 'https://http.cat/status/404';
         });
+
+        function goBack() {
+            window.history.back();
+        }
       </script>
 </body>
 </html>

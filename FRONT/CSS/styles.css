@@ -55,7 +55,6 @@
   .perfil:hover ul {
     display: flex;
     flex-direction: column;
-    gap: 1px;
     position: absolute;
     margin-top: -0.25%;
   }
@@ -69,11 +68,13 @@
   }
 
   .perfil ul li {
-    font-size: 13px;
+    font-size: 14px;
     background-color: #BFD9D2;
-    padding: 5px;
+    padding: 4px;
     z-index: 11;
     border-style: solid;
+    transition: .5s;
+    border-radius: 10%;
   }
 
 /*Productos*/
@@ -96,8 +97,6 @@
     overflow: visible;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 1%;
-    overflow: hidden;
-    text-overflow: ellipsis;
    }
    
    .card-img {
@@ -417,38 +416,66 @@ h1 {
 .user-info span {
   color: #333;
 }
-.button-editar {
+
+.añadir{  
   display: inline-block;
-  margin-left: 20%;
-  margin-top: -1%;
-  background-color: #ffffff00;
-  color: black;
-  width: 9em;
-  height: 4em;
-  border: #BFD9D2 0.2em solid;
-  border-radius: 11px;
-  text-align: right;
-  transition: all 0.6s ease;
-}
-
-.button-editar:hover {
+  border-radius: 4px;
   background-color: #BFD9D2;
-  cursor: pointer;
-}
-
-.button-editar svg {
-  width: 1.6em;
-  margin: -0.1em 0.9em 2em;
-  position: absolute;
-  display: flex;
-  transition: all 0.6s ease;
-}
-
-.button-editar:hover svg {
-  transform: translateX(9px);
-}
-
-.text-editar {
-  margin: 0 1.5em;
+  border: none;
+  color: black;
+  text-align: center;
   font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 10%;
+}  
+.añadir span {
+  cursor: pointer;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+ }
+ 
+ .añadir span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: 20px;
+  transition: 0.5s;
+ }
+ 
+ .añadir:hover span {
+  padding-right: 40px;
+ }
+ 
+ .añadir:hover span:after {
+  opacity: 1;
+  left: -20;
+ }
+ .container-h2 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.form-productos {
+  margin-bottom: 15px;
+}
+.form-productos label {
+  display: block;
+  margin-bottom: 5px;
+}
+.form-productos input, .form-gproductos textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form-productos textarea {
+  resize: vertical;
 }

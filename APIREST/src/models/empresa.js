@@ -6,7 +6,11 @@ const EmpresaSchema = new Schema({
     email: { type: String, required: true, unique: true },
     contraseña: { type: String, required: true },
     descripcion: {type:String},
-    rol: { type: String }
+    rol: { type: String },
+    imageEmpresa : {
+        type: String,
+        required: true
+    }
 });
 
 const ProductoSchema = new Schema({

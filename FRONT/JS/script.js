@@ -12,8 +12,8 @@ botonRegistro.onclick = async () => {
         rol : "Usuario"
     }
     await crearUsuario(usuario)
+    redirectToPrincipalPage();
 }
-
 
 // Agrega un listener para el evento de clic en el botón "Regístrarse"
 document.getElementById("btn__registrarse").addEventListener("click", function() {

@@ -8,6 +8,7 @@ botonRegistro.onclick = async () => {
     const email = document.getElementById("register-email").value;
     const password = document.getElementById("register-password").value;
     const descripcion = document.getElementById("register-des").value;
+    const imagen = document.getElementById("register-imagen").value;
 
     const Empresa = {
 
@@ -15,7 +16,8 @@ botonRegistro.onclick = async () => {
         email: email,
         contraseña: password,
         descripcion: descripcion,
-        rol : "Empresa"
+        rol : "Empresa",
+        imageEmpresa: imagen
     }
  
     await crearEmpresa(Empresa)
