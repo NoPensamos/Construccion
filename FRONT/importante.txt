@@ -1,8 +1,0 @@
-Por favor no crear duplicados de las carpetas. 
-Para archivos de FRONT
-Imagenes dentro de /media
-Guías, mockups dentro de /Mockups
-Carpetas CSS, HTML y JS para cada tipo de archivo.
-
-
-
