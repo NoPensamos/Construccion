@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                    <input type="text" id="nombre" name="nombre">
                 </div>
             </div>
             <div class="formulario">
@@ -28,7 +28,7 @@
                 </div>
                 <label for="description">Descripción</label>
                 <div class="textarea-container">
-                    <textarea id="descripcion" name="descripcion" placeholder="Cuéntanos sobre tu empresa..."></textarea>
+                    <textarea id="descripcion" name="descripcion"></textarea>
                 </div>
             </div>
             <div class="upload">
@@ -36,10 +36,10 @@
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAANBJREFUSEvtldENwjAMRF83gU1gEmASYBJgEzaBTaCHEpSGtnFSpUiIfLVO7i62r25D5dVU5icWOAAbYFEofAcuLf4M6LkjIPJ9IXEMO7YB8XUEHu7UGrgGCB+Ps+2Lb4GTu/1ySMBCJKxJOCQzAXIzm1Xg5tyj2r0c4N4V18qJC//RAzVHTdKmGi2rylUrJ6DG74zxXheJ0N92qlvfpR9yzG8ITMnOVKKvCqTETRmMNfovkPwMikvk59GYgkaGRkm4Qlxnf/Z/crI2uQeqZ/AEMHo+GTXKe3cAAAAASUVORK5CYII=" alt="store">
                 </div>
                 <label for="logo">Logotipo</label>
-                <input type="file" id="logo" name="logo" accept="image/\*" required>
+                <input type="file" id="logo" name="logo" accept="image/\*">
             </div>
             <br><br>
-            <button class="button">
+            <button class="button" id="guardarCambios">
                 Guardar cambios
                 <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
                     <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
@@ -50,9 +50,19 @@
 
     <script>
         let usuario = JSON.parse(localStorage.getItem('usuario'));
-
         document.getElementById('nombre').value = usuario.nombre;
         document.getElementById('descripcion').value = usuario.email;
-    </script>
+      
+        const form = document.querySelector('form');
+        const saveButton = document.getElementById('guardarCambios');
+      
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+        });
+      
+        saveButton.addEventListener('click', function() {
+          window.location.href = 'https://http.cat/status/404';
+        });
+      </script>
 </body>
 </html>

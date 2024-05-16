@@ -47,6 +47,11 @@ const regiones = [
       zoom: 8,
       center: chile
     });
+
+    const botonGuardarCambios = document.getElementById('agregarUbicación');
+    botonGuardarCambios.addEventListener('click', function() {
+    window.location.href = 'https://http.cat/status/404';
+  });
   
     marker = new google.maps.Marker({
       position: chile,
@@ -65,7 +70,6 @@ const regiones = [
     const regionSelect = document.getElementById('region');
     const comunaSelect = document.getElementById('comuna');
   
-    // Llenar el selector de regiones
     regiones.forEach(region => {
       const option = document.createElement('option');
       option.value = region;
@@ -73,7 +77,6 @@ const regiones = [
       regionSelect.add(option);
     });
   
-    // Agregar evento change al selector de regiones
     regionSelect.addEventListener('change', function() {
       const selectedRegion = this.value;
       comunaSelect.innerHTML = '<option value="">Seleccione una comuna</option>';

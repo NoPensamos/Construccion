@@ -96,8 +96,6 @@
     overflow: visible;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 1%;
-    overflow: hidden;
-    text-overflow: ellipsis;
    }
    
    .card-img {
@@ -113,6 +111,7 @@
    
    .card-info {
     padding-top: 10%;
+    overflow: hidden;
    }
    
    svg {
@@ -126,7 +125,7 @@
     align-items: center;
     padding-top: 10px;
     border-top: 1px solid #ddd;
-
+    overflow: hidden;
    }
    
    /*Text*/
@@ -166,10 +165,12 @@
   .otros_productos{
     padding-top: 2%;
     height: auto;
-    width: 50%;
+    width: 85%;
     margin-left:auto;
     margin-right: auto;
     display: flex;
+    flex-wrap: wrap;   
+    justify-content: space-between;
   }
 
   img {
@@ -333,4 +334,119 @@ a{
 }
 .a{
   color: white;
+}
+.boton-user {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #BFD9D2;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ }
+ 
+ .boton-user span {
+  cursor: pointer;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+ }
+ 
+ .boton-user span:after {
+  content: '«';
+  position: absolute;
+  justify-content: left;
+  opacity: 0;
+  top: 0;
+  right:60px;
+  transition: 0.5s;
+ }
+ 
+ .boton-user:hover span {
+  padding-left: 30px;
+ }
+ 
+ .boton-user:hover span:after {
+  opacity: 1;
+  right: -20;
+ }
+ .container-user {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 0;
+}
+.user{
+  display: inline-block ;
+  margin-left: 15%;
+
+}
+.user-info {
+ margin-top: 2%;
+  list-style: none;
+  padding: 4;
+}
+.user-info li {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.user-info label {
+  font-weight: bold;
+  color: #666;
+}
+.user-info span {
+  color: #333;
+}
+.button-editar {
+  display: inline-block;
+  margin-left: 20%;
+  margin-top: -1%;
+  background-color: #ffffff00;
+  color: black;
+  width: 9em;
+  height: 4em;
+  border: #BFD9D2 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+}
+
+.button-editar:hover {
+  background-color: #BFD9D2;
+  cursor: pointer;
+}
+
+.button-editar svg {
+  width: 1.6em;
+  margin: -0.1em 0.9em 2em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.button-editar:hover svg {
+  transform: translateX(9px);
+}
+
+.text-editar {
+  margin: 0 1.5em;
+  font-size: 17px;
 }
