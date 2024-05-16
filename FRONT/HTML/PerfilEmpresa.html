@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Empresa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 0;
+        }
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .back-btn i {
+            margin-right: 5px;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+        .user-info {
+            list-style: none;
+            padding: 0;
+        }
+        .user-info li {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .user-info label {
+            font-weight: bold;
+            color: #666;
+        }
+        .user-info span {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i>Volver</button>
+        <h1 id="Empresa">Perfil de Empresa</h1>
+        <ul class="user-info" id="user-info">
+            <!-- Los datos del Empresa serán mostrados aquí -->
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        Empresa = JSON.parse(localStorage.getItem('Empresa'));
+
+        var userInfoList = document.getElementById('user-info');
+        
+        var nameItem = document.createElement('li');
+        nameItem.innerHTML = '<label>Nombre:</label> <span>' + Empresa.nombre + '</span>';
+        userInfoList.appendChild(nameItem);
+
+        var emailItem = document.createElement('li');
+        emailItem.innerHTML = '<label>Email:</label> <span>' + Empresa.email + '</span>';
+        userInfoList.appendChild(emailItem);
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
