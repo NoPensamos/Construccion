@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Ubicación</title>
+    <link rel="stylesheet" href="../CSS/stylesUbicacion.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="../media/logo.png" width="100" height="auto" alt="logo">
+        </div>
+      <h1>Ingresa tu Dirección</h1>
+      <form id="address-form">
+        <div class="form-group">
+          <label for="calle">Calle</label>
+          <input type="text" id="calle" name="calle" required>
+        </div>
+        <div class="form-group">
+          <label for="region">Región</label>
+          <select id="region" name="region" required></select>
+        </div>
+        <div class="form-group">
+          <label for="comuna">Comuna</label>
+          <select id="comuna" name="comuna" required></select>
+        </div>
+        <button type="submit">Mostrar en el Mapa</button>
+      </form>
+      <div id="map"></div>
+      <br><br>
+            <button class="button">
+                Guardar cambios
+                <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                    <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+                </svg>
+            </button>
+    </div>
+  
+    <script src="../JS/agregarUbicación.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbWbZ5J_4RzZoEoHSUlPkAJHEwrHARHy4&callback=initMap"></script>
+  </body>
+</html>
