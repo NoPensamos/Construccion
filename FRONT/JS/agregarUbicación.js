@@ -41,6 +41,10 @@ const regiones = [
   let map;
   let marker;
   
+  function goBack() {
+    window.history.back();
+  }
+
   function initMap() {
     const chile = { lat: -33.4489, lng: -70.6693 };
     map = new google.maps.Map(document.getElementById('map'), {
