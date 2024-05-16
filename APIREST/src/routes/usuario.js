@@ -87,11 +87,9 @@ router.get("/login/:contra/:email", async (req,res)=>{
 
 
         }
-        
-        // Si las credenciales son válidas, devuelve el usuario
-        res.json(usuario);
 
-        return res.status(200).json({status: true, mensaje: "Credenciales", data:{}})
+
+        return res.status(200).json({status: true, mensaje: "Credenciales", data:usuario})
 
     } catch (error) {
         // Si ocurre algún error, devuelve un mensaje de error genérico
@@ -100,6 +98,7 @@ router.get("/login/:contra/:email", async (req,res)=>{
     }
 
 });
+
 
 /* router.put("/updateusuarioByID",async (req,res)=>{
     
