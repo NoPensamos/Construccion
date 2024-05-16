@@ -71,7 +71,7 @@
   .perfil ul li {
     font-size: 13px;
     background-color: #BFD9D2;
-    padding: 10px;
+    padding: 5px;
     z-index: 11;
     border-style: solid;
   }
@@ -79,21 +79,25 @@
 /*Productos*/
   .producto{
     padding-top: 2%;
-    width: 55%;
+    width: 50%;
     padding-right: 2%;
     height: auto;
     float: right;
-    display: flex;
+    display: inline-flex;
+    flex-wrap: wrap;   
+    justify-content: space-between;
   }
   .card {
     width: 190px;
-    height: 254px;
+    height: 204px;
     padding: .8em;
     background: #f5f5f5;
     position: relative;
     overflow: visible;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     margin: 1%;
+    overflow: hidden;
+    text-overflow: ellipsis;
    }
    
    .card-img {
@@ -122,17 +126,19 @@
     align-items: center;
     padding-top: 10px;
     border-top: 1px solid #ddd;
+
    }
    
    /*Text*/
    .text-title {
     font-weight: 900;
-    font-size: 1.2em;
-    line-height: 1.5;
+    font-size: 1.0em;
+    line-height: 1.5; 
+    
    }
    
    .text-body {
-    font-size: .9em;
+    font-size: .8em;
     padding-bottom: 10px;
    }
    
