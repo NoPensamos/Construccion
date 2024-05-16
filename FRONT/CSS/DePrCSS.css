@@ -35,10 +35,9 @@ header {
 .perfil {
     width: 70px;
     display: flex;
-    justify-content: right;
     float: right;
-    margin-right: 0%;
-    margin-top: 1%;
+    text-align: center;
+
 }
   .perfil img {
     margin-left: 5px;
@@ -50,6 +49,8 @@ header {
     display: flex;
     flex-direction: column;
     gap: 1px;
+    position: absolute;
+    margin-top: -0.25%;
   }
 
   .perfil ul {
@@ -63,7 +64,7 @@ header {
   .perfil ul li {
     font-size: 13px;
     background-color: #BFD9D2;
-    padding: 10px;
+    padding: 5px;
     z-index: 11;
     border-style: solid;
   }
