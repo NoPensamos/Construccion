@@ -72,14 +72,14 @@
     box-sizing: border-box; 
     border-radius: 15px; 
     background-color: rgb(105, 152, 111); 
-    color: rgb(183, 213, 179); 
+    color: rgb(255, 255, 255); 
     font-size: 17px; 
     font-weight: 700; 
     border: #a2c2ee; 
 } 
   
 .enviar:hover { 
-    background-color: rgb(52, 98, 58); 
+    background-color: rgb(0, 0, 0); 
 } 
   
 .map-div iframe { 
@@ -89,7 +89,7 @@
   
 .gfg { 
     text-align: center; 
-    color: green; 
+    color: rgb(0, 0, 0); 
 } 
   
 .map-div { 
