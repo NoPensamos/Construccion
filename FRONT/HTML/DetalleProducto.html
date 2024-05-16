@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta
@@ -12,30 +13,32 @@
 	</head>
 	<body>
 		<div class="container-title">
-			<img src="../media/logo2.png" alt="logo" class="logo">
+			<a href="index 2.html"><img src="../media/logo2.png" alt="logo" class="logo"></a>
 
 
 			<div class="perfil">
 				<img src="../media/IMG PRINCIPAL/user-solid.svg">
 				<ul>            
-					<a href = "https://http.cat/status/404"><li>Ver perfil</a></li></a>
-					<a href = "https://http.cat/status/404"><li>Administrar</a></li></a>
-					<a href = "index.html"><li>Cerrar sesión</li> </a>  
+					<a href = "perfil.html"><li>Ver perfil</a></li></a>
+					<a href = "EditarPerfilEmpresa.html"><li>Administrar</a></li></a>
+					<a href = "Sesion.html"><li>Cerrar sesión</li> </a>  
 				</ul>
 				</div>
 		</div>
 
 		<main>
-			<div class="container-img">
+			<div class="container-img" id="products-container">
 				<img
 					src="../media/IMG PRINCIPAL/shopify.svg"
 					alt="imagen-producto"
 				/>
 			</div>
 			<div class="container-info-product">
+				<h2 class="">
+					Producto
+				</h2>
 				<div class="container-price">
 					<span>$1</span>
-					<i class="fa-solid fa-angle-right"></i>
 				</div>
 
 				<div class="container-details-product">
@@ -83,7 +86,6 @@
 				<div class="container-description">
 					<div class="title-description">
 						<h4>Descripción</h4>
-						<i class="fa-solid fa-chevron-down"></i>
 					</div>
 					<div class="text-description">
 						<p>
@@ -95,7 +97,6 @@
 				<div class="container-additional-information">
 					<div class="title-additional-information">
 						<h4>Información adicional</h4>
-						<i class="fa-solid fa-chevron-down"></i>
 					</div>
 					<div class="text-additional-information">
 						<p>Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí Texto aquí</p>
@@ -138,75 +139,6 @@
 		</div>
 	</main>
 
-		<section class="container-related-products">
-			<h2>Productos Relacionados</h2>
-			<div class="card-list-products">
-				<div class="card">
-					<div class="card-img">
-						<img
-							src="../media/IMG PRINCIPAL/shopify.svg"
-							alt="producto-1"
-						/>
-					</div>
-					<div class="info-card">
-						<div class="text-product">
-							<h3>Producto</h3>
-							<p class="category">Categoria-categoria</p>
-						</div>
-						<div class="price">$1</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-img">
-						<img
-							src="../media/IMG PRINCIPAL/shopify.svg"
-							alt="producto-2"
-						/>
-					</div>
-					<div class="info-card">
-						<div class="text-product">
-							<h3>Producto</h3>
-							<p class="category">Categoria-categoria</p>
-						</div>
-						<div class="price">$1</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-img">
-						<img
-							src="../media/IMG PRINCIPAL/shopify.svg"
-							alt="producto-3"
-						/>
-					</div>
-					<div class="info-card">
-						<div class="text-product">
-							<h3>Producto</h3>
-							<p class="category">Categoria-categoria</p>
-						</div>
-						<div class="price">$1</div>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-img">
-						<img
-							src="../media/IMG PRINCIPAL/shopify.svg"
-							alt="producto-4"
-						/>
-					</div>
-					<div class="info-card">
-						<div class="text-product">
-							<h3>Producto</h3>
-							<p class="category">Categoria-categoria</p>
-						</div>
-						<div class="price">$1</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<footer>
-			<p>Footer</p>
-		</footer>
 
 		<script
 			src="https://kit.fontawesome.com/81581fb069.js"
